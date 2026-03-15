@@ -1,0 +1,88 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-slider",
+      "blocks": {
+        "slide_1": {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "Craftberry collection",
+            "heading": "Build clean Shopify experiences",
+            "text": "<p>Create scalable storefront sections with clean Liquid architecture and strong visual hierarchy.</p>",
+            "button_label": "Shop now",
+            "button_link": "/collections/all",
+            "content_alignment": "left"
+          }
+        },
+        "slide_2": {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "Modern storefronts",
+            "heading": "Structured sections that scale",
+            "text": "<p>Use reusable blocks, clean assets, and strong theme architecture for better Shopify development.</p>",
+            "button_label": "Explore more",
+            "button_link": "/collections/all",
+            "content_alignment": "left"
+          }
+        }
+      },
+      "block_order": ["slide_1", "slide_2"],
+      "settings": {
+        "autoplay": true,
+        "autoplay_speed": 5
+      }
+    },
+    "flip_cards": {
+      "type": "flip-cards",
+      "blocks": {
+        "card_1": {
+          "type": "card",
+          "settings": {
+            "front_label": "Minimal",
+            "title": "Minimal essentials",
+            "text": "<p>Clean product presentation with a modern storefront feel and premium visual direction.</p>",
+            "button_label": "Shop now",
+            "button_link": "/collections/all"
+          }
+        },
+        "card_2": {
+          "type": "card",
+          "settings": {
+            "front_label": "Premium",
+            "title": "Premium experience",
+            "text": "<p>Use flip cards to present categories, collections, or key benefits in a more memorable way.</p>",
+            "button_label": "Explore",
+            "button_link": "/collections/all"
+          }
+        },
+        "card_3": {
+          "type": "card",
+          "settings": {
+            "front_label": "Scalable",
+            "title": "Scalable architecture",
+            "text": "<p>Reusable section logic keeps the project cleaner and much easier to present to employers.</p>",
+            "button_label": "Discover",
+            "button_link": "/collections/all"
+          }
+        }
+      },
+      "block_order": ["card_1", "card_2", "card_3"],
+      "settings": {
+        "heading": "Interactive collection cards",
+        "text": "<p>This section uses front-side imagery and back-side content to make the landing page feel more dynamic.</p>"
+      }
+    },
+    "products": {
+      "type": "product-grid",
+      "settings": {
+        "heading": "Featured products",
+        "products_to_show": 6
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "flip_cards",
+    "products"
+  ]
+}

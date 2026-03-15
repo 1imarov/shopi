@@ -1,0 +1,13 @@
+[
+  {
+    "name": "Theme settings",
+    "settings": [
+      {
+        "type": "text",
+        "id": "theme_name",
+        "label": "Theme name",
+        "default": "Craftberry Test Theme"
+      }
+    ]
+  }
+]

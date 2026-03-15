@@ -1,0 +1,138 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+    color: #111111;
+    background-color: #ffffff;
+    line-height: 1.5;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+.page-width {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.main-content {
+    min-height: 60vh;
+}
+
+.site-header {
+    border-bottom: 1px solid #e7e7e7;
+    background-color: #ffffff;
+}
+
+.site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 76px;
+    gap: 24px;
+}
+
+.site-header__logo {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.site-header__nav {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.site-header__nav a {
+    font-size: 15px;
+    line-height: 1;
+}
+
+.site-footer {
+    border-top: 1px solid #e7e7e7;
+    background-color: #ffffff;
+}
+
+.site-footer__inner {
+    padding: 28px 0;
+}
+
+.site-footer__text {
+    margin: 0;
+    font-size: 14px;
+    color: #666666;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 24px;
+    border: 1px solid #111111;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.button:hover {
+    background-color: #111111;
+    color: #ffffff;
+}
+
+.rte p {
+    margin: 0 0 1em;
+}
+
+.rte p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+    .site-header__inner {
+        min-height: auto;
+        padding: 18px 0;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .site-header__nav {
+        flex-wrap: wrap;
+    }
+
+    .button {
+        min-height: 44px;
+        padding: 0 20px;
+    }
+}

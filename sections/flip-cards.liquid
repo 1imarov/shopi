@@ -1,0 +1,146 @@
+{{ 'section-flip-cards.css' | asset_url | stylesheet_tag }}
+
+<section class="flip-cards">
+  <div class="page-width">
+    {% if section.settings.heading != blank or section.settings.text != blank %}
+      <div class="flip-cards__header">
+        {% if section.settings.heading != blank %}
+          <h2 class="flip-cards__heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+
+        {% if section.settings.text != blank %}
+          <div class="flip-cards__text rte">
+            {{ section.settings.text }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+      <div class="flip-cards__grid">
+        {% for block in section.blocks %}
+          <div class="flip-card" {{ block.shopify_attributes }}>
+            <div class="flip-card__inner">
+              <div class="flip-card__face flip-card__face--front">
+                {% if block.settings.image != blank %}
+                  <div class="flip-card__image-wrapper">
+                    {{
+                      block.settings.image
+                      | image_url: width: 900
+                      | image_tag:
+                        class: 'flip-card__image',
+                        loading: 'lazy',
+                        alt: block.settings.title
+                    }}
+                  </div>
+                {% else %}
+                  <div class="flip-card__placeholder">
+                    No image
+                  </div>
+                {% endif %}
+
+                {% if block.settings.front_label != blank %}
+                  <div class="flip-card__front-label">
+                    {{ block.settings.front_label }}
+                  </div>
+                {% endif %}
+              </div>
+
+              <div class="flip-card__face flip-card__face--back">
+                <div class="flip-card__back-content">
+                  {% if block.settings.title != blank %}
+                    <h3 class="flip-card__title">{{ block.settings.title }}</h3>
+                  {% endif %}
+
+                  {% if block.settings.text != blank %}
+                    <div class="flip-card__description rte">
+                      {{ block.settings.text }}
+                    </div>
+                  {% endif %}
+
+                  {% if block.settings.button_label != blank and block.settings.button_link != blank %}
+                    <a href="{{ block.settings.button_link }}" class="button flip-card__button">
+                      {{ block.settings.button_label }}
+                    </a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Flip cards",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Discover the collection"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Interactive flip cards create a stronger first impression and help present product categories in a more engaging way.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Flip card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Front image"
+        },
+        {
+          "type": "text",
+          "id": "front_label",
+          "label": "Front label",
+          "default": "New arrival"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Back title",
+          "default": "Premium essentials"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Back text",
+          "default": "<p>Use the back side of the card to highlight the category, style direction, or key selling point.</p>"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Explore"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Flip cards",
+      "blocks": [
+        { "type": "card" },
+        { "type": "card" },
+        { "type": "card" }
+      ]
+    }
+  ]
+}
+{% endschema %}
