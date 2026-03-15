@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -26,7 +35,10 @@
           }
         }
       },
-      "block_order": ["slide_1", "slide_2"],
+      "block_order": [
+        "slide_1",
+        "slide_2"
+      ],
       "settings": {
         "autoplay": true,
         "autoplay_speed": 5
@@ -66,7 +78,11 @@
           }
         }
       },
-      "block_order": ["card_1", "card_2", "card_3"],
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3"
+      ],
       "settings": {
         "heading": "Interactive collection cards",
         "text": "<p>This section uses front-side imagery and back-side content to make the landing page feel more dynamic.</p>"
@@ -76,6 +92,7 @@
       "type": "product-grid",
       "settings": {
         "heading": "Featured products",
+        "text": "<p>Highlight key products from a selected collection.</p>",
         "products_to_show": 6
       }
     }
