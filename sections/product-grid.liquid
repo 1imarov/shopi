@@ -14,24 +14,39 @@
       {% endif %}
     </div>
 
-    {% assign selected_collection = collections[section.settings.collection] %}
-
-    {% if selected_collection != blank and selected_collection.products_count > 0 %}
+    {% if section.blocks.size > 0 %}
       <div class="product-grid__grid">
-        {% for product in selected_collection.products limit: section.settings.products_to_show %}
-          {% render 'product-card', product: product %}
-        {% endfor %}
-      </div>
-    {% else %}
-      <div class="product-grid__grid">
-        {% for i in (1..6) %}
-          <div class="product-card product-card--placeholder">
+        {% for block in section.blocks %}
+          <div class="product-card" {{ block.shopify_attributes }}>
             <div class="product-card__image-wrapper">
-              <div class="product-card__placeholder-image"></div>
+              {% if block.settings.image != blank %}
+                {{
+                  block.settings.image
+                  | image_url: width: 900
+                  | image_tag:
+                    class: 'product-card__image',
+                    loading: 'lazy',
+                    alt: block.settings.title
+                }}
+              {% else %}
+                <div class="product-card__placeholder-image"></div>
+              {% endif %}
             </div>
+
             <div class="product-card__info">
-              <h3 class="product-card__title">Demo product {{ i }}</h3>
-              <div class="product-card__price">$49.00</div>
+              {% if block.settings.title != blank %}
+                <h3 class="product-card__title">{{ block.settings.title }}</h3>
+              {% endif %}
+
+              {% if block.settings.price != blank %}
+                <div class="product-card__price">{{ block.settings.price }}</div>
+              {% endif %}
+
+              {% if block.settings.button_label != blank and block.settings.button_link != blank %}
+                <a href="{{ block.settings.button_link }}" class="button product-card__button">
+                  {{ block.settings.button_label }}
+                </a>
+              {% endif %}
             </div>
           </div>
         {% endfor %}
@@ -54,26 +69,56 @@
       "type": "richtext",
       "id": "text",
       "label": "Text",
-      "default": "<p>Highlight key products from a selected collection.</p>"
-    },
+      "default": "<p>Highlight selected items with editable product-style cards.</p>"
+    }
+  ],
+  "blocks": [
     {
-      "type": "collection",
-      "id": "collection",
-      "label": "Collection"
-    },
-    {
-      "type": "range",
-      "id": "products_to_show",
-      "label": "Products to show",
-      "min": 3,
-      "max": 12,
-      "step": 1,
-      "default": 6
+      "type": "product_card",
+      "name": "Product card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Product image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Essential hoodie"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price",
+          "default": "$89.00"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Shop now"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
     }
   ],
   "presets": [
     {
-      "name": "Product grid"
+      "name": "Product grid",
+      "blocks": [
+        { "type": "product_card" },
+        { "type": "product_card" },
+        { "type": "product_card" },
+        { "type": "product_card" },
+        { "type": "product_card" },
+        { "type": "product_card" }
+      ]
     }
   ]
 }

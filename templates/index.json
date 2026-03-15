@@ -90,10 +90,73 @@
     },
     "products": {
       "type": "product-grid",
+      "blocks": {
+        "product_1": {
+          "type": "product_card",
+          "settings": {
+            "title": "Essential hoodie",
+            "price": "$89.00",
+            "button_label": "Shop now",
+            "button_link": "/collections/all"
+          }
+        },
+        "product_2": {
+          "type": "product_card",
+          "settings": {
+            "title": "Minimal jacket",
+            "price": "$124.00",
+            "button_label": "Explore",
+            "button_link": "/collections/all"
+          }
+        },
+        "product_3": {
+          "type": "product_card",
+          "settings": {
+            "title": "Classic trousers",
+            "price": "$96.00",
+            "button_label": "View item",
+            "button_link": "/collections/all"
+          }
+        },
+        "product_4": {
+          "type": "product_card",
+          "settings": {
+            "title": "Premium knitwear",
+            "price": "$110.00",
+            "button_label": "Discover",
+            "button_link": "/collections/all"
+          }
+        },
+        "product_5": {
+          "type": "product_card",
+          "settings": {
+            "title": "Modern essentials",
+            "price": "$79.00",
+            "button_label": "Shop now",
+            "button_link": "/collections/all"
+          }
+        },
+        "product_6": {
+          "type": "product_card",
+          "settings": {
+            "title": "Signature outerwear",
+            "price": "$149.00",
+            "button_label": "Explore",
+            "button_link": "/collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "product_1",
+        "product_2",
+        "product_3",
+        "product_4",
+        "product_5",
+        "product_6"
+      ],
       "settings": {
         "heading": "Featured products",
-        "text": "<p>Highlight key products from a selected collection.</p>",
-        "products_to_show": 6
+        "text": "<p>Highlight selected items with editable product-style cards.</p>"
       }
     }
   },
